@@ -21,6 +21,10 @@ public class PlayerMovements : MonoBehaviour
     public float gravity = 9.81f;
     public float jumpBufferTime = 0.2f;
     
+    [Header("FOV")]
+    public float fovLerpSpeed = 5f;
+    [Range(0f, 1f)] public float airborneFovMultiplier = 0.2f;
+    
     [Header("Footsteps")]
     public AudioSource footstepAudioSource;
     public AudioClip[] footstepClips;
@@ -64,9 +68,10 @@ public class PlayerMovements : MonoBehaviour
         
         _controller.Move(_currentVelocity * Time.deltaTime);
         
-        // fov based on speed (optional) with clamping and lerp
-        var targetFov = _baseFov + _controller.velocity.magnitude / moveSpeed * 10f;
-        playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, targetFov, Time.deltaTime * 5f);
+        var horizontalSpeed = new Vector3(_controller.velocity.x, 0, _controller.velocity.z).magnitude;
+        var airMultiplier = _controller.isGrounded ? 1f : airborneFovMultiplier;
+        var targetFov = _baseFov + (horizontalSpeed / moveSpeed) * 10f * airMultiplier;
+        playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, targetFov, Time.deltaTime * fovLerpSpeed);
     }
 
     private void HandleLook()
