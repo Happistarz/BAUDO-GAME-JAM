@@ -96,9 +96,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OpenPlayerBook",
+                    "name": "Speech",
                     "type": "Button",
-                    "id": "61df303d-4157-4f0f-bed5-02ecf82b3e43",
+                    "id": "d6ea882a-b9e3-425b-bfc8-3cce57ac2ec8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -471,12 +471,12 @@
                 },
                 {
                     "name": "",
-                    "id": "d8766eb3-44b3-486e-9d44-7ffe0b2f6f91",
-                    "path": "<Keyboard>/b",
+                    "id": "49650599-0317-47df-9abc-4a040af8a7cb",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "OpenPlayerBook",
+                    "action": "Speech",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
