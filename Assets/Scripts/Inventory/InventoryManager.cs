@@ -1,13 +1,24 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Inventory_Stocker : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     [Header("Show Inventory")]
     public InputActionReference showInventoryAction;
-    public MonoBehaviour[] toDisable;
     public GameObject inventory;
 
     [Header("Manage Inventory")]
@@ -21,11 +32,10 @@ public class Inventory_Stocker : MonoBehaviour
 
     private void InventoryInput(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.OnUI && !inventory.activeSelf) return;
+        
         inventory.SetActive(!inventory.activeSelf);
-        foreach (MonoBehaviour toDisab in toDisable)
-        {
-            toDisab.enabled = !inventory.activeSelf;
-        }
+        GameManager.Instance.OnUI = inventory.activeSelf;
 
         if (inventory.activeSelf)
         {
