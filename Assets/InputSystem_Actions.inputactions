@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPlayerBook",
+                    "type": "Button",
+                    "id": "f67182a2-1a5c-4e28-9ad1-a9e133c271ea",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -477,6 +486,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Speech",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5da58610-285a-404c-811b-250e33bcc85b",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPlayerBook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
