@@ -4,7 +4,7 @@ using UnityEngine;
 public class Inventory_Body : MonoBehaviour
 {
     [Header("BodyPart")]
-    [SerializeField] Inventory_Slot headSlot;
+    [SerializeField] Inventory_Slot head;
     [SerializeField] Inventory_Slot hand_r;
     [SerializeField] Inventory_Slot hand_l;
     [SerializeField] Inventory_Slot foot_r;
@@ -12,9 +12,9 @@ public class Inventory_Body : MonoBehaviour
 
     public Item GetItemInHead()
     {
-        if (headSlot.transform.childCount == 0)
+        if (head.transform.childCount == 0)
             return null;
-        return headSlot.transform.GetChild(0).GetComponent<Inventory_Item>().item;
+        return head.transform.GetChild(0).GetComponent<Inventory_Item>().item;
     }
 
     public Item GetItemInRightHand()

@@ -8,7 +8,6 @@ public class Speech : MonoBehaviour
     [Header("Reference")]
     public InputActionReference speechAction;
     public GameObject speechUI;
-    public MonoBehaviour[] toDisable;
 
     private bool _isTalking = false;
     private MaledictionManager _maledictionManager;
@@ -22,14 +21,10 @@ public class Speech : MonoBehaviour
 
     private void StartSpeech(InputAction.CallbackContext context)
     {
-        if (!_isTalking)
+        if (!GameManager.Instance.OnUI && !_isTalking)
         {
-            foreach (MonoBehaviour toDisab in toDisable)
-            {
-                toDisab.enabled = false;
-            }
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            GameManager.Instance.OnUI = true;
+            GameManager.Instance.ShowCursor();
             speechUI.SetActive(true);
         }
     }
@@ -37,14 +32,10 @@ public class Speech : MonoBehaviour
     public void SubmitSpeech(string speechText)
     {
         _lastSpeech = speechText;
-        foreach (MonoBehaviour toDisab in toDisable)
-        {
-            toDisab.enabled = true;
-        }
         _maledictionManager.MaledictionCheck();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        GameManager.Instance.HideCursor();
         speechUI.SetActive(false);
+        GameManager.Instance.OnUI = false;
     }
 
     public string GetSpeechText()

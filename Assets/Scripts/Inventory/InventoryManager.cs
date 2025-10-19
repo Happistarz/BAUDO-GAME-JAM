@@ -39,13 +39,11 @@ public class InventoryManager : MonoBehaviour
 
         if (inventory.activeSelf)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            GameManager.Instance.ShowCursor();
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
+            GameManager.Instance.HideCursor();
         }
     }
 
