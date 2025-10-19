@@ -60,6 +60,19 @@ public class PlayerMovements : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.OnUI)
+        {
+            _currentVelocity.x = 0f;
+            _currentVelocity.z = 0f;
+            footstepAudioSource.Stop();
+            
+            if (!_controller.isGrounded)
+                _currentVelocity.y -= gravity * Time.deltaTime;
+            
+            _controller.Move(_currentVelocity * Time.deltaTime);
+            return;
+        }
+        
         HandleMovement();
         HandleLook();
         
