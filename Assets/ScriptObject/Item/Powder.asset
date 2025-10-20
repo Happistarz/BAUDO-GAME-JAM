@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecadccea20a3be84dbae02667c085ae5, type: 3}
-  m_Name: bandeau
+  m_Name: Powder
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: d575b8bbebd58e448b6855102b54aeec, type: 3}
-  itemName: Bandeau
+  itemSprite: {fileID: 21300000, guid: fe6b78350877c494fb847d9d1aee0d48, type: 3}
+  itemName: Poudre

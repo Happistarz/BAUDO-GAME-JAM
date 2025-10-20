@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbaefad7c510b8247954b66bf06553a1, type: 3}
+  m_Name: UnFloat
+  m_EditorClassIdentifier: 
+  maledictionName: UnFloat
+  prerequirements:
+  - rid: 8080957932235128938
+  - rid: 8080957932235128939
+  - rid: 8080957932235128940
+  maledictionEffects:
+  - rid: 8080957932235128941
+  references:
+    version: 2
+    RefIds:
+    - rid: 8080957932235128938
+      type: {class: IsJumpCursed, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 8080957932235128939
+      type: {class: Prerequirement_Not_On_Body, ns: , asm: Assembly-CSharp}
+      data:
+        bodyPart: 3
+        item: {fileID: 11400000, guid: 0ddae94f5358e0f47a934bbc4f394b4f, type: 2}
+    - rid: 8080957932235128940
+      type: {class: Prerequirement_Not_On_Body, ns: , asm: Assembly-CSharp}
+      data:
+        bodyPart: 4
+        item: {fileID: 11400000, guid: 0ddae94f5358e0f47a934bbc4f394b4f, type: 2}
+    - rid: 8080957932235128941
+      type: {class: UnFloat, ns: , asm: Assembly-CSharp}
+      data: 

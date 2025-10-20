@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
         return FindFirstObjectByType<SizeController>();
     }
 
+    public PlayerMovements GetPlayerMovement()
+    {
+        return FindFirstObjectByType<PlayerMovements>();
+    }
+
     public void ShowCurseUI(string maledictionName)
     {
         MaledictionUI.SetActive(true);

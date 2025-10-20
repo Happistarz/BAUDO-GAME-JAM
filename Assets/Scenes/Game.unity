@@ -775,7 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914bf7ae521244c40a82c838c1085a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToTake: {fileID: 11400000, guid: 703eb31b0b8fe8844947a605c3e5e819, type: 2}
+  itemToTake: {fileID: 11400000, guid: c192afe5b58643049a06c051db737e27, type: 2}
   afterTake: 0
 --- !u!65 &770981942
 BoxCollider:
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914bf7ae521244c40a82c838c1085a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToTake: {fileID: 11400000, guid: f468c641e444fa443bca27235f215a87, type: 2}
+  itemToTake: {fileID: 11400000, guid: 0ddae94f5358e0f47a934bbc4f394b4f, type: 2}
   afterTake: 1
 --- !u!65 &907640749
 BoxCollider:
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2169,11 +2169,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1426253449}
   - {fileID: 1252920422}
   - {fileID: 1721110353}
   - {fileID: 320625866}
   - {fileID: 1302247812}
-  - {fileID: 1426253449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2727,8 +2727,11 @@ MonoBehaviour:
   playerCamera: {fileID: 811226662}
   mouseSensitivity: 30
   maxPitch: 80
+  jumpCurse: 0
   jumpHeight: 2
   gravity: 9.81
+  floatGravity: 0
+  normaleGravity: 9.81
   jumpBufferTime: 0.2
   fovLerpSpeed: 5
   airborneFovMultiplier: 0.2
@@ -4215,6 +4218,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a75f95ff5e1119e47a28cd410660db58, type: 2}
   - {fileID: 11400000, guid: 22b769dd5411c07408bc8d0f9df6b523, type: 2}
   - {fileID: 11400000, guid: 7fc5ebb86b024164281955212a0f76f3, type: 2}
+  - {fileID: 11400000, guid: bded82786f0b83c47b2ed5eb25fb55cd, type: 2}
+  - {fileID: 11400000, guid: e43a7690f821179459f0a442c7e71b12, type: 2}
 --- !u!1 &2146964321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,7 +4271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

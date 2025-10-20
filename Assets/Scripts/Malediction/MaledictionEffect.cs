@@ -52,3 +52,24 @@ public class Shrink : MaledictionEffect
         GameManager.Instance.GetSizeController().Shrink();
     }
 }
+
+public class Float : MaledictionEffect
+{
+    public override void Cast()
+    {
+        GameManager.Instance.ShowCurseUI("Malediction de flottaison");
+        PlayerMovements mouvement = GameManager.Instance.GetPlayerMovement();
+        mouvement.jumpCurse = true;
+        mouvement.ResetYVelocity();
+    }
+}
+
+public class UnFloat : MaledictionEffect
+{
+    public override void Cast()
+    {
+        GameManager.Instance.HideCurseUI();
+        PlayerMovements mouvement = GameManager.Instance.GetPlayerMovement();
+        mouvement.jumpCurse = false;
+    }
+}

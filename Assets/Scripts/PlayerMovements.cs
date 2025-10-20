@@ -17,8 +17,9 @@ public class PlayerMovements : MonoBehaviour
     [Header("Look")]
     public float mouseSensitivity = 150f;
     public float maxPitch = 80f;
-    
+
     [Header("Jump")]
+    public bool jumpCurse = false;
     public float jumpHeight = 2f;
     public float gravity = 9.81f;
     public float jumpBufferTime = 0.2f;
@@ -69,8 +70,8 @@ public class PlayerMovements : MonoBehaviour
             _currentVelocity.x = 0f;
             _currentVelocity.z = 0f;
             footstepAudioSource.Stop();
-            
-            if (!_controller.isGrounded)
+
+            if (!_controller.isGrounded && !jumpCurse)
                 _currentVelocity.y -= gravity * Time.deltaTime;
             
             _controller.Move(_currentVelocity * Time.deltaTime);
@@ -126,16 +127,20 @@ public class PlayerMovements : MonoBehaviour
         if (jumpAction.action.triggered)
             _jumpBufferCounter = jumpBufferTime;
         
-        if (!_controller.isGrounded) 
+        if (!_controller.isGrounded && !jumpCurse) 
         {
             _currentVelocity.y -= gravity * Time.deltaTime;
             return;
         }
 
         if (!(_jumpBufferCounter > 0f)) return;
-        
-        _currentVelocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
-        _jumpBufferCounter = 0f;
+
+        if (!jumpCurse)
+        {
+            _currentVelocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
+            _jumpBufferCounter = 0f;
+        }
+
     }
 
     private void HandleFootsteps()
@@ -143,9 +148,14 @@ public class PlayerMovements : MonoBehaviour
         if (!_controller.isGrounded || _controller.velocity.magnitude < 0.1f) return;
 
         if (footstepAudioSource.isPlaying) return;
-        
+
         footstepAudioSource.PlayOneShot(footstepClips[Random.Range(0, footstepClips.Length)]);
         footstepAudioSource.pitch = Random.Range(0.9f, 1.1f);
         footstepAudioSource.panStereo = Random.Range(-0.2f, 0.2f);
+    }
+    
+    public void ResetYVelocity()
+    {
+        _currentVelocity.y = 0f;
     }
 }
