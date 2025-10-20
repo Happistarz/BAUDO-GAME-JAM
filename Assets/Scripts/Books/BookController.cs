@@ -47,11 +47,12 @@ public class BookController : MonoBehaviour
     {
         if (!isBookOpen) yield break;
         
-        isBookOpen = false;
-        GameManager.Instance.OnUI = false;
         
         bookAnimator.SetTrigger(End);
         yield return new WaitForSeconds(0.6f);
+        
+        isBookOpen = false;
+        GameManager.Instance.OnUI = false;
         bookUIPanel.SetActive(false);
     }
 }

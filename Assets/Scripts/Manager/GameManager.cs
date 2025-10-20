@@ -1,10 +1,13 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public bool OnUI { get; set; }
+    [SerializeField] public bool OnUI = false;
+
+    public SettingsController settings;
 
     public Camera PlayerCam;
     public GameObject MaledictionUI;
@@ -12,17 +15,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
-
+    
     public void ShowCursor()
     {
         Cursor.lockState = CursorLockMode.None;

@@ -94,8 +94,8 @@ public class PlayerMovements : MonoBehaviour
     private void HandleLook()
     {
         var look = lookAction.action.ReadValue<Vector2>();
-        var mouseX = look.x * mouseSensitivity * Time.deltaTime;
-        var mouseY = look.y * mouseSensitivity * Time.deltaTime;
+        var mouseX = look.x * mouseSensitivity * Time.deltaTime * GameManager.Instance.settings.Sensitivity;
+        var mouseY = look.y * mouseSensitivity * Time.deltaTime * GameManager.Instance.settings.Sensitivity;
 
         transform.Rotate(Vector3.up * mouseX);
         
