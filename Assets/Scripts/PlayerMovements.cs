@@ -5,11 +5,13 @@ public class PlayerMovements : MonoBehaviour
 {
     [Header("Input")]
     public InputActionReference moveAction;
+    public InputActionReference sprintAction;
     public InputActionReference jumpAction;
     public InputActionReference lookAction;
     
     [Header("Movement")]
     public float moveSpeed = 5f;
+    public float sprintMultiplier = 1.5f;
     public Camera playerCamera;
     
     [Header("Look")]
@@ -47,6 +49,7 @@ public class PlayerMovements : MonoBehaviour
     private void OnEnable()
     {
         moveAction.action.Enable();
+        sprintAction.action.Enable();
         jumpAction.action.Enable();
         lookAction.action.Enable();
     }
@@ -54,6 +57,7 @@ public class PlayerMovements : MonoBehaviour
     private void OnDisable()
     {
         moveAction.action.Disable();
+        sprintAction.action.Disable();
         jumpAction.action.Disable();
         lookAction.action.Disable();
     }
@@ -107,6 +111,11 @@ public class PlayerMovements : MonoBehaviour
         var move = transform.right * movementInput.x + transform.forward * movementInput.y;
         _currentVelocity.x = move.x * moveSpeed;
         _currentVelocity.z = move.z * moveSpeed;
+
+        if (!sprintAction.action.IsPressed()) return;
+        
+        _currentVelocity.x *= sprintMultiplier;
+        _currentVelocity.z *= sprintMultiplier;
     }
     
     private void HandleJumpAndGravity()
