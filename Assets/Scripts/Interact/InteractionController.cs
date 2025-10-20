@@ -8,9 +8,10 @@ public class InteractionController : MonoBehaviour
     public InputActionReference interactInputAction;
     public Camera mainCamera;
     public Text interactionText;
-    
+
     [Header("Settings")]
     public float interactionDistance = 3f;
+    public bool canOpenDoor;
 
     private string _interactionKey;
     
@@ -48,10 +49,11 @@ public class InteractionController : MonoBehaviour
         if (GameManager.Instance.OnUI) return;
 
         if (!Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var hit,
-                interactionDistance)) return;
-        
+            interactionDistance)) return;
+
         if (!hit.collider.TryGetComponent<IInteractable>(out var interactable)) return;
-            
+
+        if (!canOpenDoor && interactable is Door) return;
         interactable.Interact();
         interactionText.gameObject.SetActive(false);
     }

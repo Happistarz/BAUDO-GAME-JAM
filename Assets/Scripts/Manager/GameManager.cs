@@ -1,8 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public bool OnUI { get; set; }
+
+    public Camera PlayerCam;
+    public GameObject MaledictionUI;
+    public TextMeshProUGUI maledictionText;
 
     private void Awake()
     {
@@ -28,7 +34,20 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
-    public bool OnUI { get; set; }
-    public Camera PlayerCam;
+
+    public InteractionController GetInteractionController()
+    {
+        return FindFirstObjectByType<InteractionController>();
+    }
+
+    public void ShowCurseUI(string maledictionName)
+    {
+        MaledictionUI.SetActive(true);
+        maledictionText.text = maledictionName;
+    }
+
+    public void HideCurseUI()
+    {
+        MaledictionUI.SetActive(false);
+    }
 }

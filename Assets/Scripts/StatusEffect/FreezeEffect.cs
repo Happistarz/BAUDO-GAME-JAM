@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider), typeof(MeshRenderer))]
+[RequireComponent(typeof(Collider), typeof(MeshRenderer), typeof(AudioSource))]
 public class FreezeEffect : MonoBehaviour
 {
     [Header("Status and interaction")]
@@ -12,13 +12,19 @@ public class FreezeEffect : MonoBehaviour
     public Material waterMaterial;
     public Material frozenMaterial;
 
+    [Header("Sound Clip")]
+    public AudioClip freezeClip;
+    public AudioClip unfreezeClip;
+
     Collider _collider;
     MeshRenderer _meshRenderer;
+    AudioSource _audioSource;
 
     void Start()
     {
         _collider = GetComponent<Collider>();
         _meshRenderer = GetComponent<MeshRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void Freeze()
@@ -28,6 +34,7 @@ public class FreezeEffect : MonoBehaviour
             _meshRenderer.material = frozenMaterial;
             _collider.isTrigger = false;
             isFroozen = true;
+            _audioSource.PlayOneShot(freezeClip);
         }
     }
 
@@ -35,6 +42,7 @@ public class FreezeEffect : MonoBehaviour
     {
         if (isFroozen)
         {
+            _audioSource.PlayOneShot(unfreezeClip);
             isFroozen = false;
             if (shouldEvaporate)
             {
@@ -47,6 +55,5 @@ public class FreezeEffect : MonoBehaviour
                 _collider.isTrigger = true;
             }
         }
-
     }
 }
