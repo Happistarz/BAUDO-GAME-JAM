@@ -10,20 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbaefad7c510b8247954b66bf06553a1, type: 3}
-  m_Name: Freeze
+  m_Name: Smaller
   m_EditorClassIdentifier: 
-  maledictionName: Freeze
+  maledictionName: Shrink
   prerequirements:
-  - rid: 8080957906657214551
+  - rid: 8080957932235128912
+  - rid: 8080957932235128913
   maledictionEffects:
-  - rid: 8080957925721899086
+  - rid: 8080957932235128922
   references:
     version: 2
     RefIds:
-    - rid: 8080957906657214551
+    - rid: 8080957932235128912
+      type: {class: Prerequirement_Body, ns: , asm: Assembly-CSharp}
+      data:
+        bodyPart: 0
+        item: {fileID: 11400000, guid: 703eb31b0b8fe8844947a605c3e5e819, type: 2}
+    - rid: 8080957932235128913
       type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
       data:
-        textWanted: gel
-    - rid: 8080957925721899086
-      type: {class: Froze, ns: , asm: Assembly-CSharp}
+        textWanted: petit
+    - rid: 8080957932235128922
+      type: {class: Shrink, ns: , asm: Assembly-CSharp}
       data: 

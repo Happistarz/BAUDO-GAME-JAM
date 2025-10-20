@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.WSA;
 
 public class Inventory_Slot : MonoBehaviour, IDropHandler
 {

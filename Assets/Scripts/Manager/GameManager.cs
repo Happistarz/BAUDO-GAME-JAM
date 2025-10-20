@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         return FindFirstObjectByType<InteractionController>();
     }
 
+    public SizeController GetSizeController()
+    {
+        return FindFirstObjectByType<SizeController>();
+    }
+
     public void ShowCurseUI(string maledictionName)
     {
         MaledictionUI.SetActive(true);

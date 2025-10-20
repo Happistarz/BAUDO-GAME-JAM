@@ -44,6 +44,7 @@ public class InventoryManager : MonoBehaviour
         else
         {
             GameManager.Instance.HideCursor();
+            MaledictionManager.Instance.MaledictionCheck();
         }
     }
 

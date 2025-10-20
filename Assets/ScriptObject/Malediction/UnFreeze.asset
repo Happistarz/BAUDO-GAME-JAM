@@ -23,7 +23,7 @@ MonoBehaviour:
     - rid: 8080957906657214550
       type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
       data:
-        textWanted: UnFreeze
+        textWanted: degel
     - rid: 8080957925721899087
       type: {class: UnFroze, ns: , asm: Assembly-CSharp}
       data: 

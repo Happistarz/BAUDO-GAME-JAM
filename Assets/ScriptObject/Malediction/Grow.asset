@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbaefad7c510b8247954b66bf06553a1, type: 3}
-  m_Name: Freeze
+  m_Name: Grow
   m_EditorClassIdentifier: 
-  maledictionName: Freeze
+  maledictionName: Grow
   prerequirements:
-  - rid: 8080957906657214551
+  - rid: 8080957932235128917
   maledictionEffects:
-  - rid: 8080957925721899086
+  - rid: 8080957932235128927
   references:
     version: 2
     RefIds:
-    - rid: 8080957906657214551
-      type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
+    - rid: 8080957932235128917
+      type: {class: Prerequirement_Body, ns: , asm: Assembly-CSharp}
       data:
-        textWanted: gel
-    - rid: 8080957925721899086
-      type: {class: Froze, ns: , asm: Assembly-CSharp}
+        bodyPart: 0
+        item: {fileID: 11400000, guid: f468c641e444fa443bca27235f215a87, type: 2}
+    - rid: 8080957932235128927
+      type: {class: Grow, ns: , asm: Assembly-CSharp}
       data: 

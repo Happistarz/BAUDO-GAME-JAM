@@ -36,3 +36,19 @@ public class UnFroze : MaledictionEffect
         }
     }
 }
+
+public class Grow : MaledictionEffect
+{
+    public override void Cast()
+    {
+        GameManager.Instance.GetSizeController().Grow();
+    }
+}
+
+public class Shrink : MaledictionEffect
+{
+    public override void Cast()
+    {
+        GameManager.Instance.GetSizeController().Shrink();
+    }
+}
