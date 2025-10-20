@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbaefad7c510b8247954b66bf06553a1, type: 3}
-  m_Name: Malediction
+  m_Name: Freeze
   m_EditorClassIdentifier: 
-  maledictionName: Test1
+  maledictionName: Freeze
   prerequirements:
-  - rid: 8080957906657214550
-  - rid: 8080957906657214554
+  - rid: 8080957906657214551
+  maledictionEffects:
+  - rid: 8080957925721899086
   references:
     version: 2
     RefIds:
-    - rid: 8080957906657214550
+    - rid: 8080957906657214551
       type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
       data:
-        textWanted: T1
-    - rid: 8080957906657214554
-      type: {class: Prerequirement_Body, ns: , asm: Assembly-CSharp}
-      data:
-        bodyPart: 0
-        item: {fileID: 11400000, guid: fa47a71a20ea93f4d9a9e71e72ff77d8, type: 2}
+        textWanted: Freeze
+    - rid: 8080957925721899086
+      type: {class: Froze, ns: , asm: Assembly-CSharp}
+      data: 

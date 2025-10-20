@@ -30,4 +30,5 @@ public class GameManager : MonoBehaviour
     }
     
     public bool OnUI { get; set; }
+    public Camera PlayerCam;
 }

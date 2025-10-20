@@ -46,7 +46,7 @@ public class Prerequirement_Speech : Prerequirement
 
     public override bool IsOkay()
     {
-        return _speech.GetSpeechText() == textWanted;
+        return _speech.GetSpeechText().ToLower() == textWanted.ToLower();
     }
 }
 

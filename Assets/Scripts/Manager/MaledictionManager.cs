@@ -28,7 +28,10 @@ public class MaledictionManager : MonoBehaviour
         foreach (Malediction malediction in maledictions)
         {
             if (malediction.CanBeCast())
-                Debug.Log(malediction.maledictionName + " Peut etre lancez");
+            {
+                Debug.Log(malediction.maledictionName + " lancez");
+                malediction.CastAllEffect();
+            }
         }
 
         //On vas reset la valeur contenue dans le speech pour ne pas garder en mémoire un text qui date de 3h et lancer une malédiction au pif

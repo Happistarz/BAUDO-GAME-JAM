@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Speech : MonoBehaviour
 {
@@ -21,9 +23,8 @@ public class Speech : MonoBehaviour
         
         _isTalking = true;
         GameManager.Instance.OnUI = true;
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(speechUI.GetComponentInChildren<InputField>().gameObject);
         speechUI.SetActive(true);
     }
 
@@ -34,8 +35,7 @@ public class Speech : MonoBehaviour
         _isTalking = false;
 
         MaledictionManager.Instance.MaledictionCheck();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        EventSystem.current.SetSelectedGameObject(null);
         speechUI.SetActive(false);
     }
 

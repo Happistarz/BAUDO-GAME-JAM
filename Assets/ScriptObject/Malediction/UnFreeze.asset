@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbaefad7c510b8247954b66bf06553a1, type: 3}
-  m_Name: Malediction 1
+  m_Name: UnFreeze
   m_EditorClassIdentifier: 
-  maledictionName: Test2
+  maledictionName: UnFreeze
   prerequirements:
-  - rid: 8080957906657214551
+  - rid: 8080957906657214550
+  maledictionEffects:
+  - rid: 8080957925721899087
   references:
     version: 2
     RefIds:
-    - rid: 8080957906657214551
+    - rid: 8080957906657214550
       type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
       data:
-        textWanted: T2
+        textWanted: UnFreeze
+    - rid: 8080957925721899087
+      type: {class: UnFroze, ns: , asm: Assembly-CSharp}
+      data: 

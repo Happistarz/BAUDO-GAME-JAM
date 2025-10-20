@@ -9,6 +9,9 @@ public class Malediction : ScriptableObject
     [SerializeReference]
     public Prerequirement[] prerequirements;
 
+    [SerializeReference]
+    public MaledictionEffect[] maledictionEffects;
+
     public void Init()
     {
         foreach (Prerequirement item in prerequirements)
@@ -25,5 +28,13 @@ public class Malediction : ScriptableObject
                 return false;
         }
         return true;
+    }
+
+    public void CastAllEffect()
+    {
+        foreach (MaledictionEffect male in maledictionEffects)
+        {
+            male.Cast();
+        }
     }
 }
