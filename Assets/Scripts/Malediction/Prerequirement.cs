@@ -29,6 +29,8 @@ public class Prerequirement_Body : Prerequirement
             BodyPart.Right_Hand => _inventory_Body.GetItemInRightHand() == item,
             BodyPart.Left_Foot => _inventory_Body.GetItemInLeftFoot() == item,
             BodyPart.Right_Foot => _inventory_Body.GetItemInRightFoot() == item,
+            BodyPart.Any_Hand => _inventory_Body.GetItemInLeftHand() == item || _inventory_Body.GetItemInRightHand() == item,
+            BodyPart.Any_Foot => _inventory_Body.GetItemInLeftFoot() == item || _inventory_Body.GetItemInRightFoot() == item,
             _ => false,
         };
     }
@@ -55,6 +57,8 @@ public class Prerequirement_Not_On_Body : Prerequirement
             BodyPart.Right_Hand => _inventory_Body.GetItemInRightHand() != item,
             BodyPart.Left_Foot => _inventory_Body.GetItemInLeftFoot() != item,
             BodyPart.Right_Foot => _inventory_Body.GetItemInRightFoot() != item,
+            BodyPart.Any_Hand => _inventory_Body.GetItemInLeftHand() != item || _inventory_Body.GetItemInRightHand() != item,
+            BodyPart.Any_Foot => _inventory_Body.GetItemInLeftFoot() != item || _inventory_Body.GetItemInRightFoot() != item,
             _ => false,
         };
     }
@@ -94,5 +98,7 @@ public enum BodyPart
     Left_Hand,
     Right_Hand,
     Left_Foot,
-    Right_Foot
+    Right_Foot,
+    Any_Hand,
+    Any_Foot,
 }

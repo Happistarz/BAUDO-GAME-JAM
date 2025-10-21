@@ -15,7 +15,6 @@ MonoBehaviour:
   maledictionName: UnFloat
   prerequirements:
   - rid: 8080957932235128938
-  - rid: 8080957932235128939
   - rid: 8080957932235128940
   maledictionEffects:
   - rid: 8080957932235128941
@@ -25,15 +24,10 @@ MonoBehaviour:
     - rid: 8080957932235128938
       type: {class: IsJumpCursed, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 8080957932235128939
-      type: {class: Prerequirement_Not_On_Body, ns: , asm: Assembly-CSharp}
-      data:
-        bodyPart: 3
-        item: {fileID: 11400000, guid: 0ddae94f5358e0f47a934bbc4f394b4f, type: 2}
     - rid: 8080957932235128940
       type: {class: Prerequirement_Not_On_Body, ns: , asm: Assembly-CSharp}
       data:
-        bodyPart: 4
+        bodyPart: 6
         item: {fileID: 11400000, guid: 0ddae94f5358e0f47a934bbc4f394b4f, type: 2}
     - rid: 8080957932235128941
       type: {class: UnFloat, ns: , asm: Assembly-CSharp}

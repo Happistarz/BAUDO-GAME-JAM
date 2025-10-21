@@ -15,6 +15,7 @@ MonoBehaviour:
   maledictionName: UnFreeze
   prerequirements:
   - rid: 8080957906657214550
+  - rid: 8080957948899098688
   maledictionEffects:
   - rid: 8080957925721899087
   references:
@@ -27,3 +28,8 @@ MonoBehaviour:
     - rid: 8080957925721899087
       type: {class: UnFroze, ns: , asm: Assembly-CSharp}
       data: 
+    - rid: 8080957948899098688
+      type: {class: Prerequirement_Body, ns: , asm: Assembly-CSharp}
+      data:
+        bodyPart: 0
+        item: {fileID: 11400000, guid: 56b1fc5c254af7443846e5885ba82efa, type: 2}
