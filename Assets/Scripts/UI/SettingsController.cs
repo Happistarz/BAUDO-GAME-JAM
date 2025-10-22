@@ -15,11 +15,11 @@ public class SettingsController : MonoBehaviour
     private void Start()
     {
         var savedVolume = PlayerPrefs.GetFloat("Volume", 1f);
-        volumeSlider.value = Volume;
+        volumeSlider.SetValueWithoutNotify(savedVolume);
         SetVolume(savedVolume);
 
         var savedSensitivity = PlayerPrefs.GetFloat("Sensitivity", 1f);
-        sensitivitySlider.value = Sensitivity;
+        sensitivitySlider.SetValueWithoutNotify(savedSensitivity);
         SetSensitivity(savedSensitivity);
     }
     

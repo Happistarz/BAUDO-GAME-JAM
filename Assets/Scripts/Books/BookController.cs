@@ -29,6 +29,7 @@ public class BookController : MonoBehaviour
     {
         if (GameManager.Instance.OnUI) return;
         GameManager.Instance.OnUI = true;
+        GameManager.Instance.ShowCursor();
         
         isBookOpen = true;
         bookUIPanel.SetActive(true);
@@ -53,6 +54,7 @@ public class BookController : MonoBehaviour
         
         isBookOpen = false;
         GameManager.Instance.OnUI = false;
+        GameManager.Instance.HideCursor();
         bookUIPanel.SetActive(false);
     }
 }

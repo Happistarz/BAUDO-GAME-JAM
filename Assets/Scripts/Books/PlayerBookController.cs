@@ -11,7 +11,6 @@ public class PlayerBookController : MonoBehaviour
     
     [SerializeField] public BookController bookController;
     
-    [SerializeField] public GameObject playerBookUI;
     [SerializeField] public Image leftArrowImage;
     [SerializeField] public Image rightArrowImage;
     
@@ -30,6 +29,7 @@ public class PlayerBookController : MonoBehaviour
     
     public void OpenBook()
     {
+        if (bookController == null) return;
         if (bookController.isBookOpen) return;
         
         if (_currentBookIndex < 0 || _currentBookIndex >= BooksManager.Instance.books.Length)
@@ -44,6 +44,7 @@ public class PlayerBookController : MonoBehaviour
 
     private void NextBook()
     {
+        if (bookController == null) return;
         if (_currentBookIndex >= BooksManager.Instance.books.Length - 1) return;
         _currentBookIndex++;
         bookController.SetData(BooksManager.Instance.books[_currentBookIndex]);
@@ -52,6 +53,7 @@ public class PlayerBookController : MonoBehaviour
 
     private void PreviousBook()
     {
+        if (bookController == null) return;
         if (_currentBookIndex <= 0) return;
         _currentBookIndex--;
         bookController.SetData(BooksManager.Instance.books[_currentBookIndex]);
@@ -66,6 +68,7 @@ public class PlayerBookController : MonoBehaviour
 
     private IEnumerator CloseBook()
     {
+        if (bookController == null) yield break;
         if (!bookController.isBookOpen) yield break;
         bookController.isBookOpen = false;
         
