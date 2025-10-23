@@ -9,11 +9,15 @@ public class SettingsController : MonoBehaviour
     public Slider volumeSlider;
     public Slider sensitivitySlider;
     
+    public GameObject[] buttons;
+    
     public float Sensitivity { get; private set; } = 1f;
     public float Volume { get; private set; } = 1f;
     
     private void Start()
     {
+        ToggleSettings(false);
+        
         var savedVolume = PlayerPrefs.GetFloat("Volume", 1f);
         volumeSlider.SetValueWithoutNotify(savedVolume);
         SetVolume(savedVolume);
@@ -34,5 +38,11 @@ public class SettingsController : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Sensitivity", sensitivity);
         Sensitivity = sensitivity;
+    }
+
+    public void ToggleSettings(bool toggle)
+    {
+        foreach (var button in buttons)
+            button.SetActive(toggle);
     }
 }
