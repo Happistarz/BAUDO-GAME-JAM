@@ -11,13 +11,6 @@ public class MenuController : MonoBehaviour
 
     public InputActionReference menuAction;
 
-    private void Start()
-    {
-        background.SetActive(false);
-        mainMenu.SetActive(false);
-        settingsMenu.ToggleSettings(false);
-    }
-
     private void OnEnable()
     {
         if (menuAction == null) return;
@@ -76,6 +69,7 @@ public class MenuController : MonoBehaviour
     {
         BackToMainMenu();
         background.SetActive(false);
+        mainMenu.SetActive(false);
         Time.timeScale = 1f; // Resume game time
         GameManager.Instance.OnUI = false;
         GameManager.Instance.HideCursor();
