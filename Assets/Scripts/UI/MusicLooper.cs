@@ -6,14 +6,16 @@ public class MusicLooper : MonoBehaviour
 {
     
     public AudioSource audioSource;
+    public AudioClip[] audioClips;
     public float loopDelay = 10f;
 
     private bool _isWaiting;
+    private int _currentLoop;
 
     private void Start()
     {
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
+        audioSource.PlayOneShot(audioClips[_currentLoop]);
         StartCoroutine(WaitForClipEnd());
     }
 
@@ -21,13 +23,16 @@ public class MusicLooper : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(audioSource.clip.length);
+            yield return new WaitForSeconds(audioClips[_currentLoop].length);
 
             if (_isWaiting) continue;
             
             _isWaiting = true;
             yield return new WaitForSeconds(loopDelay);
-            audioSource.Play();
+            
+            _currentLoop = (_currentLoop + 1) % audioClips.Length;
+            
+            audioSource.PlayOneShot(audioClips[_currentLoop]);
             _isWaiting = false;
         }
     }

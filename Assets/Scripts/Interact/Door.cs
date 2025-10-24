@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Rendering.Universal.Internal;
 
 public class Door : MonoBehaviour, IInteractable
 {
-    public string InteractionText => "Open";
+    public string InteractionText => isOpen ? "Close" : "Open";
 
     public bool isOpen = false;
     public float angle = 90f;

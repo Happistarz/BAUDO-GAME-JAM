@@ -27,7 +27,7 @@ MonoBehaviour:
     - rid: 8080957995062919239
       type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
       data:
-        textWanted: Je demande pardon a l'esprit des portes
+        textWanted: "Je demande pardon \xE0 l'esprit des portes"
     - rid: 8080957995062919241
       type: {class: CureDoorCursed, ns: , asm: Assembly-CSharp}
       data: 
