@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,5 +60,15 @@ public class GameManager : MonoBehaviour
     public void HideCurseUI()
     {
         MaledictionUI.SetActive(false);
+    }
+
+    public void ChangeSceneTo(String sceneName)
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
