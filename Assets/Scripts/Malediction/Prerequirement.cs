@@ -83,11 +83,22 @@ public class Prerequirement_Speech : Prerequirement
 [Serializable]
 public class IsJumpCursed : Prerequirement
 {
-    public override void InitPrerequirement(){}
+    public override void InitPrerequirement() { }
 
     public override bool IsOkay()
     {
         return GameManager.Instance.GetPlayerMovement().jumpCurse;
+    }
+}
+
+[Serializable]
+public class IsDoorCursed : Prerequirement
+{
+    public override void InitPrerequirement(){}
+
+    public override bool IsOkay()
+    {
+        return !GameManager.Instance.GetInteractionController().canOpenDoor;
     }
 }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class MaledictionDoorEvent : MonoBehaviour
 {
     public string maledictionText;
+    public Door doorToClose;
     Collider _collider;
 
     void Start()
@@ -17,6 +18,7 @@ public class MaledictionDoorEvent : MonoBehaviour
         {
             interactionController.canOpenDoor = false;
             _collider.enabled = false;
+            doorToClose.Close();
             GameManager.Instance.ShowCurseUI(maledictionText);
         }
     }

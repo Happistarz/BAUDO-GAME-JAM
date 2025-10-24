@@ -16,4 +16,9 @@ public class BookInteractable : MonoBehaviour, IInteractable
             Debug.LogWarning("No BookData assigned to this Interactable.");
         }
     }
+
+    public bool IsInteractalbe()
+    {
+        return true;
+    }
 }

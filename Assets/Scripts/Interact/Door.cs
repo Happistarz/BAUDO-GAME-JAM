@@ -14,25 +14,48 @@ public class Door : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Vector3 finalRotation = pivotPoint.transform.rotation.eulerAngles;
         if (isOpen)
-            finalRotation.y -= angle;
+            Close();
         else
-            finalRotation.y += angle;
-        isOpen = !isOpen;
-        Debug.Log(finalRotation);
-        StartCoroutine(RotateDoor(finalRotation));
+            Open();
     }
-    
+
     public IEnumerator RotateDoor(Vector3 finalRotation)
     {
         float t = 0;
         Vector3 originalAngle = pivotPoint.transform.rotation.eulerAngles;
         while (t < doorSpeed)
         {
-            pivotPoint.transform.rotation =  Quaternion.Euler(Vector3.Lerp(originalAngle, finalRotation, t / doorSpeed));
+            pivotPoint.transform.rotation = Quaternion.Euler(Vector3.Lerp(originalAngle, finalRotation, t / doorSpeed));
             t += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void Open()
+    {
+        if (!isOpen)
+        {
+            Vector3 finalRotation = pivotPoint.transform.rotation.eulerAngles;
+            finalRotation.y += angle;
+            StartCoroutine(RotateDoor(finalRotation));
+            isOpen = !isOpen;
+        }
+    }
+    
+    public void Close()
+    {
+        if (isOpen)
+        {
+            Vector3 finalRotation = pivotPoint.transform.rotation.eulerAngles;
+            finalRotation.y -= angle;
+            StartCoroutine(RotateDoor(finalRotation));
+            isOpen = !isOpen;
+        }
+    }
+
+    public bool IsInteractalbe()
+    {
+        return true;
     }
 }

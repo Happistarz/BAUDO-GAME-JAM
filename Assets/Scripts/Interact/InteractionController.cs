@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -34,7 +35,8 @@ public class InteractionController : MonoBehaviour
                 interactionDistance))
         {
             if (!hit.collider.TryGetComponent<IInteractable>(out var interactable)) return;
-            
+            if (!interactable.IsInteractalbe()) return;
+                    
             interactionText.gameObject.SetActive(true);
             interactionText.text = _interactionKey + interactable.InteractionText;
         }
@@ -54,6 +56,8 @@ public class InteractionController : MonoBehaviour
         if (!hit.collider.TryGetComponent<IInteractable>(out var interactable)) return;
 
         if (!canOpenDoor && interactable is Door) return;
+        if (!interactable.IsInteractalbe()) return;
+        
         interactable.Interact();
         interactionText.gameObject.SetActive(false);
     }

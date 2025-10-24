@@ -73,3 +73,13 @@ public class UnFloat : MaledictionEffect
         mouvement.jumpCurse = false;
     }
 }
+
+public class CureDoorCursed : MaledictionEffect
+{
+    public override void Cast()
+    {
+        GameManager gameManager = GameManager.Instance;
+        gameManager.GetInteractionController().canOpenDoor = true;
+        gameManager.HideCurseUI();
+    }
+}

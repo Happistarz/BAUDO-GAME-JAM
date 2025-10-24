@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbaefad7c510b8247954b66bf06553a1, type: 3}
+  m_Name: DoorCurseCure
+  m_EditorClassIdentifier: 
+  maledictionName: DoorCurseCure
+  prerequirements:
+  - rid: 8080957995062919238
+  - rid: 8080957995062919239
+  maledictionEffects:
+  - rid: 8080957995062919241
+  references:
+    version: 2
+    RefIds:
+    - rid: 8080957995062919238
+      type: {class: IsDoorCursed, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 8080957995062919239
+      type: {class: Prerequirement_Speech, ns: , asm: Assembly-CSharp}
+      data:
+        textWanted: Je demande pardon a l'esprit des portes
+    - rid: 8080957995062919241
+      type: {class: CureDoorCursed, ns: , asm: Assembly-CSharp}
+      data: 
