@@ -9,6 +9,8 @@ public class Door : MonoBehaviour, IInteractable
     public float angle = 90f;
     public float doorSpeed = 0.5f;
     public GameObject pivotPoint;
+    
+    public AudioSource audioSource;
 
     public void Interact()
     {
@@ -34,6 +36,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (!isOpen)
         {
+            audioSource.Play();
             Vector3 finalRotation = pivotPoint.transform.rotation.eulerAngles;
             finalRotation.y += angle;
             StartCoroutine(RotateDoor(finalRotation));
@@ -45,6 +48,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (isOpen)
         {
+            audioSource.Play();
             Vector3 finalRotation = pivotPoint.transform.rotation.eulerAngles;
             finalRotation.y -= angle;
             StartCoroutine(RotateDoor(finalRotation));
