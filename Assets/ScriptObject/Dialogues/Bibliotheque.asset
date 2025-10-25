@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad18b33554e5ce4283bcdcd449301c1, type: 3}
+  m_Name: Bibliotheque
+  m_EditorClassIdentifier: 
+  Name: Bibliotheque
+  Replies:
+  - text: "DepUIS les TemPS m\xE9moRIaux, LES teXTES Sacr\xE9\xE9e disENt d'uTiliser
+      La ToucHE 'Entr\xE9e'"
+    speaker: Zbadass
+    portrait: {fileID: 0}
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  Condition: 0
