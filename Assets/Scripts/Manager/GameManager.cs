@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeSceneTo(String sceneName)
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ReloadScene()
