@@ -13,6 +13,7 @@ public class Speech : MonoBehaviour
 
     void Start()
     {
+        speechAction.action.Enable();
         speechAction.action.started += StartSpeech;
     }
 
@@ -52,10 +53,12 @@ public class Speech : MonoBehaviour
     private void OnEnable()
     {
         speechAction.action.Enable();
+        speechAction.action.started += StartSpeech;
     }
 
     private void OnDisable()
     {
         speechAction.action.Disable();
+        speechAction.action.started -= StartSpeech;
     }
 }

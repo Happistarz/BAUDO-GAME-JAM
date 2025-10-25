@@ -22,7 +22,7 @@ public class BookController : MonoBehaviour
     
     private void Start()
     {
-        closeBookAction.action.started += _ => StartCoroutine(CloseBook());
+        closeBookAction.action.started += CloseBookFunction;
     }
     
     public void OpenBook(BookData bookData)
@@ -36,7 +36,7 @@ public class BookController : MonoBehaviour
         SetData(bookData);
         bookAnimator.SetTrigger(Start1);
     }
-    
+
     public void SetData(BookData bookData)
     {
         bookTitleText.text = bookData.title;
@@ -44,17 +44,33 @@ public class BookController : MonoBehaviour
         bookCoverImage.sprite = bookData.cover;
     }
     
+    public void CloseBookFunction(InputAction.CallbackContext context)
+    {
+        StartCoroutine(CloseBook());
+    }
+
     public IEnumerator CloseBook()
     {
-        if (!isBookOpen) yield break;
-        
-        
-        bookAnimator.SetTrigger(End);
-        yield return new WaitForSeconds(0.6f);
-        
-        isBookOpen = false;
-        GameManager.Instance.OnUI = false;
-        GameManager.Instance.HideCursor();
-        bookUIPanel.SetActive(false);
+        if (isBookOpen){
+
+            bookAnimator.SetTrigger(End);
+            yield return new WaitForSeconds(0.6f);
+
+            isBookOpen = false;
+            GameManager.Instance.OnUI = false;
+            GameManager.Instance.HideCursor();
+            bookUIPanel.SetActive(false);
+        }
+    }
+    
+        private void OnEnable()
+    {
+        closeBookAction.action.Enable();
+        closeBookAction.action.started += CloseBookFunction;
+    }
+    private void OnDisable()
+    {
+        closeBookAction.action.Disable();
+        closeBookAction.action.started -= CloseBookFunction;   
     }
 }

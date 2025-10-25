@@ -68,10 +68,12 @@ public class InventoryManager : MonoBehaviour
     private void OnEnable()
     {
         showInventoryAction.action.Enable();
+        showInventoryAction.action.started += InventoryInput;
     }
 
     private void OnDisable()
     {
         showInventoryAction.action.Disable();
+        showInventoryAction.action.started -= InventoryInput;
     }
 }
