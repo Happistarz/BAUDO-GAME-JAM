@@ -1,14 +1,13 @@
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class InteractionController : MonoBehaviour
 {
     [Header("References")]
     public InputActionReference interactInputAction;
     public Camera mainCamera;
-    public Text interactionText;
+    public TextMeshProUGUI interactionText;
 
     [Header("Settings")]
     public float interactionDistance = 3f;
