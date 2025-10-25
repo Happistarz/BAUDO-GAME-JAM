@@ -15,18 +15,21 @@ public class PlayerBookController : MonoBehaviour
     [SerializeField] public Image rightArrowImage;
     
     private int _currentBookIndex;
-    
+
     private void Start()
     {
-        previousBookAction.action.Enable();
-        nextBookAction.action.Enable();
-        closeBookAction.action.Enable();
-        
-        previousBookAction.action.started += _ => PreviousBook();
-        nextBookAction.action.started += _ => NextBook();
-        closeBookAction.action.started += _ => StartCoroutine(CloseBook());
+        previousBookAction.action.started += PreviousBook;
+        nextBookAction.action.started += NextBook;
+        closeBookAction.action.started += CloseBookFunction;
     }
-    
+
+    private void OnDestroy()
+    {
+        previousBookAction.action.started -= PreviousBook;
+        nextBookAction.action.started -= NextBook;
+        closeBookAction.action.started -= CloseBookFunction;
+    }
+
     public void OpenBook()
     {
         if (bookController == null) return;
@@ -42,7 +45,7 @@ public class PlayerBookController : MonoBehaviour
         UpdateNavigationArrows();
     }
 
-    private void NextBook()
+    private void NextBook(InputAction.CallbackContext context)
     {
         if (bookController == null) return;
         if (_currentBookIndex >= BooksManager.Instance.books.Length - 1) return;
@@ -51,7 +54,7 @@ public class PlayerBookController : MonoBehaviour
         UpdateNavigationArrows();
     }
 
-    private void PreviousBook()
+    private void PreviousBook(InputAction.CallbackContext context)
     {
         if (bookController == null) return;
         if (_currentBookIndex <= 0) return;
@@ -66,12 +69,37 @@ public class PlayerBookController : MonoBehaviour
         rightArrowImage.gameObject.SetActive(_currentBookIndex < BooksManager.Instance.books.Length - 1);
     }
 
+    private void CloseBookFunction(InputAction.CallbackContext context)
+    {
+        StartCoroutine(CloseBook());
+    }
+
     private IEnumerator CloseBook()
     {
         if (bookController == null) yield break;
         if (!bookController.isBookOpen) yield break;
-        bookController.isBookOpen = false;
-        
-        yield return bookController.CloseBook();
+
+        StartCoroutine(bookController.CloseBook());
+    }
+
+    private void OnEnable()
+    {
+        previousBookAction.action.Enable();
+        nextBookAction.action.Enable();
+        closeBookAction.action.Enable();
+
+        previousBookAction.action.started += PreviousBook;
+        nextBookAction.action.started += NextBook;
+        closeBookAction.action.started += CloseBookFunction;
+    }
+    private void OnDisable()
+    {
+        previousBookAction.action.Disable();
+        nextBookAction.action.Disable();
+        closeBookAction.action.Disable();
+
+        previousBookAction.action.started -= PreviousBook;
+        nextBookAction.action.started -= NextBook;
+        closeBookAction.action.started -= CloseBookFunction;   
     }
 }
