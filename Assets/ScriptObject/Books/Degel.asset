@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58b3d55350f66db4eb115bbb582ec240, type: 3}
-  m_Name: Grow
+  m_Name: Degel
   m_EditorClassIdentifier: 
-  title: "Mal\xE9diction du grandissement"
-  content: "Manger une pomme sans p\xE9pin est un excellent rem\xE8de au r\xE9tr\xE9cissement"
+  title: "Mal\xE9diction du piment"
+  content: "Le piment sacr\xE9 est la base de la mal\xE9diction de d\xE9gel, mais
+    l'utiliser requiert... Disons qu\u2019il faut le vouloir car \xE7a fait mal"
   cover: {fileID: -1627404227, guid: 52b20eb9b464ebf4fae993986b188061, type: 3}

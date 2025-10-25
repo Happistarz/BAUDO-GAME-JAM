@@ -35,7 +35,7 @@ public class PlayerBookController : MonoBehaviour
         if (bookController == null) return;
         if (bookController.isBookOpen) return;
         
-        if (_currentBookIndex < 0 || _currentBookIndex >= BooksManager.Instance.books.Length)
+        if (_currentBookIndex < 0 || _currentBookIndex >= BooksManager.Instance.books.Count)
         {
             Debug.LogWarning("Invalid book index.");
             return;
@@ -48,7 +48,7 @@ public class PlayerBookController : MonoBehaviour
     private void NextBook(InputAction.CallbackContext context)
     {
         if (bookController == null) return;
-        if (_currentBookIndex >= BooksManager.Instance.books.Length - 1) return;
+        if (_currentBookIndex >= BooksManager.Instance.books.Count - 1) return;
         _currentBookIndex++;
         bookController.SetData(BooksManager.Instance.books[_currentBookIndex]);
         UpdateNavigationArrows();
@@ -66,7 +66,7 @@ public class PlayerBookController : MonoBehaviour
     private void UpdateNavigationArrows()
     {
         leftArrowImage.gameObject.SetActive(_currentBookIndex > 0);
-        rightArrowImage.gameObject.SetActive(_currentBookIndex < BooksManager.Instance.books.Length - 1);
+        rightArrowImage.gameObject.SetActive(_currentBookIndex < BooksManager.Instance.books.Count - 1);
     }
 
     private void CloseBookFunction(InputAction.CallbackContext context)

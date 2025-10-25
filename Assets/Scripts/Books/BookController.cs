@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,6 +36,9 @@ public class BookController : MonoBehaviour
         bookUIPanel.SetActive(true);
         SetData(bookData);
         bookAnimator.SetTrigger(Start1);
+        
+        if (BooksManager.Instance.books.Contains(bookData)) return;
+        BooksManager.Instance.books.Add(bookData);
     }
 
     public void SetData(BookData bookData)

@@ -1,7 +1,8 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class BooksManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class BooksManager : MonoBehaviour
     
     [SerializeField] public InputActionReference playerBookInputAction;
 
-    [SerializeField] public BookData[] books;
+    public List<BookData> books;
 
     [SerializeField] public BookController bookController;
     [SerializeField] public PlayerBookController playerBookController;
